@@ -1,7 +1,7 @@
 authors: 
   - Chen Sagi (@chensagi)
   - Michal Greenberg (@micahlg)
-  - Magesh Karunakaran (@mageshk)
+  - Magesh Karunakaran (@radwaremageshk)
 dependencies: {}
 description: A collection of Ansible Modules for Radware devices
 documentation: ''
@@ -19,4 +19,4 @@ tags:
 - collection
 - networking
 - sdn
-version: 0.0.1
+version: 1.0.0
