@@ -6,7 +6,7 @@ The alteon_modules project provides an Ansible collection for managing and autom
 <b>Note</b>: This Collection is not currently intended to replace the existing <a href="https://galaxy.ansible.com/radware/radware_modules">radware_modules</a> collection.
 
 ## Requirements
-- Ansible >= 2.14
+- Ansible >= 2.14.0
 - Python >= 3.9
 - alteon-sdk python package
 
