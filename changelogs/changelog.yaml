@@ -1,6 +1,17 @@
 ancestor: null
 releases:
   1.0.0:
-    major_changes:
-      - Add initial modules
+    changes:
+      major_changes:
+        - Add initial modules
     release_date: '2023-09-07'
+  1.0.1:
+    changes:
+      minor_changes:
+        - Fix as needed for ansible lint
+    release_date: '2023-09-08'
+  1.0.2:
+    changes:
+      minor_changes:
+        - Add ansible lint to CI pipeline
+    release_date: '2023-09-12'
