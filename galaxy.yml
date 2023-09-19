@@ -1,4 +1,4 @@
-authors: 
+authors:
   - Chen Sagi (@chensagi)
   - Michal Greenberg (@micahlg)
   - Magesh Karunakaran (@radwaremageshk)
@@ -12,11 +12,12 @@ name: radware_alteon
 namespace: radware
 readme: README.md
 repository: https://github.com/Radware/radware_alteon_modules
-tags: 
-- radware
-- alteon
-- cloud
-- collection
-- networking
-- sdn
+tags:
+  - radware
+  - alteon
+  - cloud
+  - collection
+  - networking
+  - sdn
 version: 1.0.2
+
