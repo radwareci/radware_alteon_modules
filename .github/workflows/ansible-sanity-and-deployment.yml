@@ -90,7 +90,7 @@ jobs:
         uses: artis3n/ansible_galaxy_collection@v2
         with:
           api_key: '${{ secrets.GALAXY_API_KEY }}'
-          publish: true
+          publish: false
 
   # deploy_automation:
   #   #needs: sanity
