@@ -12,13 +12,13 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
                     'supported_by': 'certified'}
 
 DOCUMENTATION = r'''
-module: alteon_config_snmpv3_notify
-short_description: Manage SNMPv3 view tree family in Radware Alteon
+module: alteon_config_security_global
+short_description: Manage security global parameters in Radware Alteon
 description:
-  - Manage SNMPv3 view tree family in Radware Alteon.
-version_added: '1.0.0'
+  - configure security global parameters in Radware Alteon.
+version_added: '1.1.0'
 author:
-  - Ofer Epstein (@ofere)
+  - Michal Greenberg (@michalg)
 options:
   provider:
     description:
@@ -66,9 +66,9 @@ options:
   state:
     description:
       - When C(present), guarantees that the object exists with the provided attributes.
-      - When C(absent), when applicable removes the object.
+      - When C(absent), when applicable removes the object. Not supported in this module.
       - When C(read), when exists read object from configuration to parameter format.
-      - When C(overwrite), removes the object if exists then recreate it
+      - When C(overwrite), removes the object if exists then recreate it. Not supported in this module.
       - When C(append), append object configuration with the provided parameters
     required: true
     default: null
@@ -93,21 +93,18 @@ options:
     type: bool
   parameters:
     description:
-      - Parameters for SNMPv3 view tree family configuration.
+      - Security global parameters configuration.
     type: dict
     suboptions:
-      name:
+      secure_path_status:
         description:
-          - Set notify name.
-        required: true
-        default: null
-        type: str
-      tag:
-        description:
-          - Set notify tag.
+          - enable or disable secure path.
+          - This field is available from alteon version 33.5.2.0.
         required: false
-        default: null
-        type: str
+        default: "off"
+        choices:
+        - "on"
+        - "off"
 notes:
   - Requires the Radware alteon-sdk Python package on the host. This is as easy as
       C(pip3 install alteon-sdk)
@@ -117,7 +114,7 @@ requirements:
 
 EXAMPLES = r'''
 - name: alteon configuration command
-  radware.radware_alteon.alteon_config_snmpv3_view_tree_family:
+  radware.radware_alteon.alteon_config_security_global:
     provider:
       server: 192.168.1.1
       user: admin
@@ -128,8 +125,7 @@ EXAMPLES = r'''
       timeout: 5
     state: present
     parameters:
-      name: notifyName
-      tag: notifyTag
+      secure_path_status: true
 '''
 
 RETURN = r'''
@@ -151,7 +147,7 @@ from ansible_collections.radware.radware_alteon.plugins.module_utils.common impo
 from ansible_collections.radware.radware_alteon.plugins.module_utils.alteon import AlteonConfigurationModule, \
     AlteonConfigurationArgumentSpec as ArgumentSpec
 try:
-    from radware.alteon.sdk.configurators.snmpv3_notify import SNMPv3NotifyConfigurator
+    from radware.alteon.sdk.configurators.security_global import SecurityGlobalConfigurator
 except ModuleNotFoundError:
     if __name__ == '__main__':
         module_args = {'parameters': {'type': 'dict', 'required': False},
@@ -166,11 +162,11 @@ except ModuleNotFoundError:
 
 class ModuleManager(AlteonConfigurationModule):
     def __init__(self, **kwargs):
-        super(ModuleManager, self).__init__(SNMPv3NotifyConfigurator, **kwargs)
+        super(ModuleManager, self).__init__(SecurityGlobalConfigurator, **kwargs)
 
 
 def main():
-    spec = ArgumentSpec(SNMPv3NotifyConfigurator)
+    spec = ArgumentSpec(SecurityGlobalConfigurator)
     module = AnsibleModule(argument_spec=spec.argument_spec, supports_check_mode=spec.supports_check_mode)
 
     try:

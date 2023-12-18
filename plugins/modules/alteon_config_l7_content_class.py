@@ -134,7 +134,7 @@ EXAMPLES = r'''
       server: 192.168.1.1
       user: admin
       password: admin
-      validate_certs: no
+      validate_certs: false
       https_port: 443
       ssh_port: 22
       timeout: 5

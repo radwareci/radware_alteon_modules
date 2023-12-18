@@ -75,7 +75,7 @@ class ManagementModule(BaseAPI):
                 func_args = {}
 
                 if annotations:
-                    for k, in annotations.items():
+                    for k, v in annotations.items():
                         if k in self._base.params and self._base.params[k] is not None:
                             func_args.update({k: translate(self._base.params[k], get_annotation_class(annotations[k]))})
                         elif k in kw and kw[k] is not None:

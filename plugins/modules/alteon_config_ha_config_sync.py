@@ -44,8 +44,8 @@ options:
         default: null
       validate_certs:
         description:
-          - If C(no), SSL certificates will not be validated.
-          - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+          - If C(false), SSL certificates will not be validated.
+          - This should only set to C(false) used on personally controlled sites using self-signed certificates.
         required: true
         default: null
         type: bool
@@ -279,10 +279,10 @@ EXAMPLES = r'''
       peer_authentication_mode: passphrase
       authentication_passphrase: radware
       sync_peers:
-        - state: enable
+        - state: enabled
           ip_ver: ipv4
           ip4_address: 1.1.1.200
-        - state: enable
+        - state: enabled
           ip_ver: ipv4
           ip4_address: 2.2.2.100
 '''

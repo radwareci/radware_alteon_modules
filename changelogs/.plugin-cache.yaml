@@ -1,0 +1,444 @@
+objects: {}
+plugins:
+  become: {}
+  cache: {}
+  callback: {}
+  cliconf: {}
+  connection: {}
+  httpapi: {}
+  inventory: {}
+  lookup: {}
+  module:
+    alteon_config_alteon_cli_command:
+      description: Allows to configure Alteon CLI command as free text
+      name: alteon_config_alteon_cli_command
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_appshape:
+      description: Manage AppShape++ script in Radware Alteon
+      name: alteon_config_appshape
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_bgp_aggregations:
+      description: create and manage BGP aggregations in Radware Alteon
+      name: alteon_config_bgp_aggregations
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_bgp_global:
+      description: Manage BGP global parameters in Radware Alteon
+      name: alteon_config_bgp_global
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_bgp_peer:
+      description: create and manage BGP peer in Radware Alteon
+      name: alteon_config_bgp_peer
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_content_rule:
+      description: create and manage content base rules for virtual service in Radware
+        Alteon
+      name: alteon_config_content_rule
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_dns_responders:
+      description: Manage static routes in Radware Alteon
+      name: alteon_config_dns_responders
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_fqdn_server:
+      description: Manage FQDN server in Radware Alteon
+      name: alteon_config_fqdn_server
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_gel:
+      description: Manage GEL parameters in Radware Alteon
+      name: alteon_config_gel
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_global_redirection:
+      description: Manage global traffic redirection in Radware Alteon
+      name: alteon_config_global_redirection
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_group_real_server:
+      description: Manage real server in group in Radware Alteon
+      name: alteon_config_group_real_server
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_gslb_network:
+      description: Manage GSLB Network Preference in Radware Alteon
+      name: alteon_config_gslb_network
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_gslb_rule:
+      description: Manage GSLB rule in Radware Alteon
+      name: alteon_config_gslb_rule
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ha_config_sync:
+      description: Radware Alteon HA config sync
+      name: alteon_config_ha_config_sync
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ha_floating_ip:
+      description: Manage HA floating IP in Radware Alteon
+      name: alteon_config_ha_floating_ip
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ha_service:
+      description: Manage HA services in Radware Alteon
+      name: alteon_config_ha_service
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_health_check_http:
+      description: Manage HTTP health check in Radware Alteon
+      name: alteon_config_health_check_http
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_health_check_logexp:
+      description: Manage logexp health check in Radware Alteon
+      name: alteon_config_health_check_logexp
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_health_check_tcp:
+      description: Manage tcp health check in Radware Alteon
+      name: alteon_config_health_check_tcp
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_high_availability:
+      description: Manage High Availability configuration in Radware Alteon
+      name: alteon_config_high_availability
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l2_lldp:
+      description: Manage Link Layer Discovery Protocol (LLDP) in Radware Alteon
+      name: alteon_config_l2_lldp
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l2_vlan:
+      description: Manage l2 VLAN in Radware Alteon
+      name: alteon_config_l2_vlan
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l3_bootp_relay:
+      description: Manage BOOTP Relay in Radware Alteon
+      name: alteon_config_l3_bootp_relay
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l3_gateway:
+      description: Manage l3 gateway in Radware Alteon
+      name: alteon_config_l3_gateway
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l3_interface:
+      description: Manage l3 interface in Radware Alteon
+      name: alteon_config_l3_interface
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l7_content_class:
+      description: create and manage layer7 content class in Radware Alteon
+      name: alteon_config_l7_content_class
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l7_content_class_cookie:
+      description: create and manage layer7 content class cookie in Radware Alteon
+      name: alteon_config_l7_content_class_cookie
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l7_content_class_filename:
+      description: create and manage layer7 content class URL file names in Radware
+        Alteon
+      name: alteon_config_l7_content_class_filename
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l7_content_class_filetype:
+      description: create and manage layer7 content class URL filetypes in Radware
+        Alteon
+      name: alteon_config_l7_content_class_filetype
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l7_content_class_header:
+      description: create and manage layer7 content class header in Radware Alteon
+      name: alteon_config_l7_content_class_header
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l7_content_class_hostname:
+      description: create and manage layer7 content class host name in Radware Alteon
+      name: alteon_config_l7_content_class_hostname
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_l7_content_class_path:
+      description: create and manage layer7 content class URL path in Radware Alteon
+      name: alteon_config_l7_content_class_path
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_lacp_aggregation:
+      description: Manage lacp aggregation in Radware Alteon
+      name: alteon_config_lacp_aggregation
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_network_class_ip:
+      description: Manage network class in Radware Alteon
+      name: alteon_config_network_class_ip
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_network_class_region:
+      description: Manage region network class in Radware Alteon
+      name: alteon_config_network_class_region
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_physical_port:
+      description: Manage physical port in Radware Alteon
+      name: alteon_config_physical_port
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_secure_path_policy:
+      description: create and manage secure path policy in Radware Alteon
+      name: alteon_config_secure_path_policy
+      namespace: ''
+      version_added: 1.1.0
+    alteon_config_security_global:
+      description: Manage security global parameters in Radware Alteon
+      name: alteon_config_security_global
+      namespace: ''
+      version_added: 1.1.0
+    alteon_config_server:
+      description: Manage real server in Radware Alteon
+      name: alteon_config_server
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_server_group:
+      description: Manage server group in Radware Alteon
+      name: alteon_config_server_group
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_sideband_policy:
+      description: create and manage sideband policy in Radware Alteon
+      name: alteon_config_sideband_policy
+      namespace: ''
+      version_added: 1.1.0
+    alteon_config_slb_pip:
+      description: Manage SLB PIP in Radware Alteon
+      name: alteon_config_slb_pip
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_slb_pip6:
+      description: Manage SLB PIP version IPv6 in Radware Alteon
+      name: alteon_config_slb_pip6
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_slb_port:
+      description: Manage SLB port parameters in Radware Alteon
+      name: alteon_config_slb_port
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmp_general:
+      description: Manage SNMP general parameters in Radware Alteon
+      name: alteon_config_snmp_general
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmpv3_access:
+      description: Manage SNMPv3 access in Radware Alteon
+      name: alteon_config_snmpv3_access
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmpv3_community:
+      description: Manage SNMPv3 community in Radware Alteon
+      name: alteon_config_snmpv3_community
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmpv3_group:
+      description: Manage SNMPv3 groups in Radware Alteon
+      name: alteon_config_snmpv3_group
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmpv3_notify:
+      description: Manage SNMPv3 view tree family in Radware Alteon
+      name: alteon_config_snmpv3_notify
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmpv3_target_addr_new_cfg:
+      description: Manage SNMPv3 target parameters in Radware Alteon
+      name: alteon_config_snmpv3_target_addr_new_cfg
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmpv3_target_params:
+      description: Manage SNMPv3 target parameters in Radware Alteon
+      name: alteon_config_snmpv3_target_params
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmpv3_usm_user:
+      description: Manage SNMPv3 USM user in Radware Alteon
+      name: alteon_config_snmpv3_usm_user
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_snmpv3_view_tree_family:
+      description: Manage SNMPv3 view tree family in Radware Alteon
+      name: alteon_config_snmpv3_view_tree_family
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_spanning_tree:
+      description: Manage spanning tree in Radware Alteon
+      name: alteon_config_spanning_tree
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ssl_cert:
+      description: Manage SSL certificates in Radware Alteon
+      name: alteon_config_ssl_cert
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ssl_cert_group:
+      description: Manage SSL certificate groups in Radware Alteon
+      name: alteon_config_ssl_cert_group
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ssl_client_auth_policy:
+      description: Manage SSL Authentication Policy in Radware Alteon
+      name: alteon_config_ssl_client_auth_policy
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ssl_key:
+      description: Manage SSL key in Radware Alteon
+      name: alteon_config_ssl_key
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ssl_policy:
+      description: Manage SSL policy in Radware Alteon
+      name: alteon_config_ssl_policy
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_ssl_server_auth_policy:
+      description: Manage SSL server Authentication Policy in Radware Alteon
+      name: alteon_config_ssl_server_auth_policy
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_static_routes:
+      description: Manage static routes in Radware Alteon
+      name: alteon_config_static_routes
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_alerts:
+      description: Manage system alerts in Radware Alteon
+      name: alteon_config_system_alerts
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_dns_client:
+      description: Manage DNS Client in Radware Alteon
+      name: alteon_config_system_dns_client
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_local_user:
+      description: Manage local users in Radware Alteon
+      name: alteon_config_system_local_user
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_logging:
+      description: Manage system logging in Radware Alteon
+      name: alteon_config_system_logging
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_management_access:
+      description: Manage management access in Radware Alteon
+      name: alteon_config_system_management_access
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_predefined_local_users:
+      description: Manage predefined local users in Radware Alteon
+      name: alteon_config_system_predefined_local_users
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_radius_auth:
+      description: Manage RADIUS Authentication in Radware Alteon
+      name: alteon_config_system_radius_auth
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_snmp:
+      description: Manage SNMP in Radware Alteon
+      name: alteon_config_system_snmp
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_tacacs_auth:
+      description: Manage TACACS+ Authentication in Radware Alteon
+      name: alteon_config_system_tacacs_auth
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_time_date:
+      description: Manage Time and Date in Radware Alteon
+      name: alteon_config_system_time_date
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_system_vx_peer_sync:
+      description: Manage VX peer sync in Radware Alteon
+      name: alteon_config_system_vx_peer_sync
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_vadc_instance:
+      description: Manage vADC instance in Radware Alteon
+      name: alteon_config_vadc_instance
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_virtual_server:
+      description: Manage virtual server in Radware Alteon
+      name: alteon_config_virtual_server
+      namespace: ''
+      version_added: 1.0.0
+    alteon_config_virtual_service:
+      description: Manage virtual service in Radware Alteon
+      name: alteon_config_virtual_service
+      namespace: ''
+      version_added: 1.0.0
+    alteon_device_configuration:
+      description: Download/Upload Alteon configuration
+      name: alteon_device_configuration
+      namespace: ''
+      version_added: 1.0.0
+    alteon_device_facts:
+      description: Collect facts from Alteon device
+      name: alteon_device_facts
+      namespace: ''
+      version_added: 1.0.0
+    alteon_mng_config:
+      description: Manage configuration in Radware Alteon
+      name: alteon_mng_config
+      namespace: ''
+      version_added: 1.0.0
+    alteon_mng_device_reboot:
+      description: Perform Alteon reboot
+      name: alteon_mng_device_reboot
+      namespace: ''
+      version_added: 1.0.0
+    alteon_oper_ha_backup:
+      description: Set Alteon to HA backup
+      name: alteon_oper_ha_backup
+      namespace: ''
+      version_added: 1.0.0
+    alteon_oper_server_status:
+      description: Set Alteon Real Server operational status
+      name: alteon_oper_server_status
+      namespace: ''
+      version_added: 1.0.0
+    alteon_software_image_upload:
+      description: Upload Alteon Image
+      name: alteon_software_image_upload
+      namespace: ''
+      version_added: 1.0.0
+    alteon_software_install:
+      description: Install software image on device
+      name: alteon_software_install
+      namespace: ''
+      version_added: 1.0.0
+    alteon_software_install_vadc:
+      description: Install software image on vadc
+      name: alteon_software_install_vadc
+      namespace: ''
+      version_added: 1.0.0
+    alteon_software_vadc_default:
+      description: Set default version for vadcs
+      name: alteon_software_vadc_default
+      namespace: ''
+      version_added: 1.0.0
+  netconf: {}
+  shell: {}
+  strategy: {}
+  vars: {}
+version: 1.1.0

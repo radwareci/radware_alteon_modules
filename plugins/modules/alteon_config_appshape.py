@@ -44,8 +44,8 @@ options:
         default: null
       validate_certs:
         description:
-          - If C(no), SSL certificates will not be validated.
-          - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+          - If C(false), SSL certificates will not be validated.
+          - This should only set to C(false) used on personally controlled sites using self-signed certificates.
         required: true
         default: null
         type: bool
@@ -130,30 +130,30 @@ EXAMPLES = r'''
       server: 192.168.1.1
       user: admin
       password: admin
-      validate_certs: no
+      validate_certs: false
       https_port: 443
       ssh_port: 22
       timeout: 5
     state: present
     parameters:
-        index: test_script
-        state: enabled
-        content: |
-          when HTTP_REQUEST {
-          HTTP::respond 200 content {
-          <!DOCTYPE html>
-          <html>
-          <head>
-          <title>SiteA</title>
-          <img src="https://www.radware.com/RadwareSite/MediaLibraries/Images/logo.svg" alt="Radware">
-          <H1>Hey, You just arrived Site A</H1>
-          </head>
-          <body>
-          </body>
-          </html>
-            }
+      index: test_script
+      state: enabled
+      content: |
+        when HTTP_REQUEST {
+        HTTP::respond 200 content {
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <title>SiteA</title>
+        <img src="https://www.radware.com/RadwareSite/MediaLibraries/Images/logo.svg" alt="Radware">
+        <H1>Hey, You just arrived Site A</H1>
+        </head>
+        <body>
+        </body>
+        </html>
           }
-          -----END
+        }
+        -----END
 '''
 
 RETURN = r'''

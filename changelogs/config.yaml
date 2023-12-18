@@ -29,6 +29,6 @@ sections:
     - Known Issues
   - - known_limitations
     - Known Limitations
-title: Radware.Alteon
+title: Radware.Radware_Alteon
 trivial_section_name: trivial
 use_fqcn: true

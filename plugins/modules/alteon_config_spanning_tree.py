@@ -44,8 +44,8 @@ options:
         default: null
       validate_certs:
         description:
-          - If C(no), SSL certificates will not be validated.
-          - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+          - If C(false), SSL certificates will not be validated.
+          - This should only set to C(false) used on personally controlled sites using self-signed certificates.
         required: true
         default: null
         type: bool
@@ -240,20 +240,20 @@ EXAMPLES = r'''
       server: 192.168.1.1
       user: admin
       password: admin
-      validate_certs: no
+      validate_certs: false
       https_port: 443
       ssh_port: 22
       timeout: 5
     state: present
     parameters:
-      state: on
+      state: true
       mstp: enabled
       mstp_mode: mstp
       mstp_region_version: 3
       mstp_maximum_hops: 10
       stp_groups:
         - id: 1
-          state: on
+          state: true
           bridge_hello_time_second: 10
           pvst_frames_on_untagged_ports: enabled
           vlans:

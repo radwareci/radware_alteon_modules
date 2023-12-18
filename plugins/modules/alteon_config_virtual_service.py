@@ -44,8 +44,8 @@ options:
         default: null
       validate_certs:
         description:
-          - If C(no), SSL certificates will not be validated.
-          - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+          - If C(false), SSL certificates will not be validated.
+          - This should only set to C(false) used on personally controlled sites using self-signed certificates.
         required: true
         default: null
         type: bool
@@ -536,6 +536,50 @@ options:
               - Appshape script name.
             required: false
             type: str
+      hostname:
+        description:
+          - Set hostname for this virtual service.
+        required: false
+        default: null
+        type: str
+      sideband_policy_id:
+        description:
+          - Set sideband policy for this virtual service.
+          - This field is available from alteon version 33.0.1.0.
+        required: false
+        default: null
+        type: str
+      secure_path_policy:
+        description:
+          - Set secure path policy for this virtual service.
+          - This field is available from alteon version 33.5.2.0.
+        required: false
+        default: null
+        type: str
+      cdn_proxy_mode:
+        description:
+          - Enable/Disable service in CDN/proxy deployment mode.
+        required: false
+        default: disabled
+        choices:
+        - enabled
+        - disabled
+      ip_header:
+        description:
+          - Set the HTTP header indicating the IP address of the client.
+          - valid options:x-forwarded-for, remote_addr, http_client_ip, http_x_forwarded_for, x-real-ip, http_x_forwarded, proxy-client-ip,
+          - wl-proxy-client-ip, http_x_cluster_client_ip, http_forwarded_for, http_forwarded, http_via, x-true-client-ip, user-defined.
+        required: false
+        default: x-forwarded-for
+        type: str
+      user_defined_ip_header:
+        description:
+          - Set the user defined HTTP header indicating the IP address of the client.
+          - This field can be set only if ip_header is set to uder_defined.
+          - This field is available from alteon version 33.0.1.0.
+        required: false
+        default: null
+        type: str
 notes:
   - Requires the Radware alteon-sdk Python package on the host. This is as easy as
       C(pip3 install alteon-sdk)
@@ -550,7 +594,7 @@ EXAMPLES = r'''
       server: 192.168.1.1
       user: admin
       password: admin
-      validate_certs: no
+      validate_certs: false
       https_port: 443
       ssh_port: 22
       timeout: 5

@@ -3,15 +3,41 @@ releases:
   1.0.0:
     changes:
       major_changes:
-        - Add initial modules
+      - Add initial modules
     release_date: '2023-09-07'
   1.0.1:
     changes:
       minor_changes:
-        - Fix as needed for ansible lint
+      - Fix as needed for ansible lint
     release_date: '2023-09-08'
   1.0.2:
     changes:
       minor_changes:
-        - Add ansible lint to CI pipeline
+      - Add ansible lint to CI pipeline
     release_date: '2023-09-12'
+  1.1.0:
+    changes:
+      bugfixes:
+      - fix AL-141408 - Module alteon_config_ha_config_sync - incorrect parameters
+        in sync_peer state.
+      - fix AL-141799 - Module alteon_software_vadc_default is not working on certified
+        collection.
+      - fix lint errors.
+      minor_changes:
+      - AL-13206 - add option to configure hname for virtual service.
+    fragments:
+    - AL-13206_add_hname_option.yaml
+    - AL-141408_ha_config_sync.yaml
+    - AL-141799_alteon_software_vadc_default.yaml
+    - fix_lint_errors.yaml
+    modules:
+    - description: create and manage secure path policy in Radware Alteon
+      name: alteon_config_secure_path_policy
+      namespace: ''
+    - description: Manage security global parameters in Radware Alteon
+      name: alteon_config_security_global
+      namespace: ''
+    - description: create and manage sideband policy in Radware Alteon
+      name: alteon_config_sideband_policy
+      namespace: ''
+    release_date: '2023-12-18'

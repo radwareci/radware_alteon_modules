@@ -44,8 +44,8 @@ options:
         default: null
       validate_certs:
         description:
-          - If C(no), SSL certificates will not be validated.
-          - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+          - If C(false), SSL certificates will not be validated.
+          - This should only set to C(false) used on personally controlled sites using self-signed certificates.
         required: true
         default: null
         type: bool
@@ -99,13 +99,27 @@ options:
     suboptions:
       alteon_cli_command:
         description:
-          - Allows to configure Alteon CLI command as free text. command must be set in one line.
+          - Allows to configure Alteon using CLI command in one-line format.
+          - Configuring several table entry fields in one line will be done by using "/" to separate the fields.
+          - (eg. /c/slb/real 1/ena/rip 1.2.3.4).
+          - Configuring several different tables and scalars will be done by setting "/" at the end of each field.
+          - The maximum length of the command line is 1200 chars.
         required: false
         default: null
         type: str
 notes:
   - Requires the Radware alteon-sdk Python package on the host. This is as easy as
       C(pip3 install alteon-sdk)
+  - This API supports only SET type of commands, and does not support GET type of commands.
+      The following commands are blocked - diff, dump, apply, save, revert, revert apply, gtcfg, ptcfg, reboot and shutdown.
+  - Interactive commands that cannot be represented in one line are not supported
+      (eg. /cfg/sys/access/user/uid/pswd).
+  - This API can be used only by users with Admin role.
+  - If the CLI command failed, the user will get a general error but with no details on reason.
+  - When the command sets multiple parameters and one is not valid, the parameters before the invalid one are set,
+      but the parameters after from the invalid one are not. The user will get indication that the command has failed
+      (failed = 1), but in order to know on which parameter he will have to perform diff on the device.
+  - When the command is successful (failed=0), the changed field is not set and it remains changed=0, even though the change was performed.
 requirements:
   - alteon-sdk
 '''
@@ -117,7 +131,7 @@ EXAMPLES = r'''
       server: 192.168.1.1
       user: admin
       password: admin
-      validate_certs: no
+      validate_certs: false
       https_port: 443
       ssh_port: 22
       timeout: 5

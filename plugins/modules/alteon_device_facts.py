@@ -203,6 +203,12 @@ options:
     - "!l7_content_class_cookie"
     - content_rule
     - "!content_rule"
+    - secure_path_policy
+    - "!secure_path_policy"
+    - sideband_policy
+    - "!sideband_policy"
+    - security_global
+    - "!security_global"
 extends_documentation_fragment: radware.radware_alteon.alteon_options_doc_fragment
 '''
 
@@ -213,7 +219,7 @@ EXAMPLES = r'''
       server: 192.168.1.1
       user: admin
       password: admin
-      validate_certs: no
+      validate_certs: false
       https_port: 443
       ssh_port: 22
       timeout: 5
@@ -648,7 +654,13 @@ except ModuleNotFoundError:
                                                                                                         ['l7_content_class_cookie'],
                                                                                                         ['!l7_content_class_cookie'],
                                                                                                         ['content_rule'],
-                                                                                                        ['!content_rule']]
+                                                                                                        ['!content_rule'],
+                                                                                                        ['secure_path_policy'],
+                                                                                                        ['!secure_path_policy'],
+                                                                                                        ['sideband_policy'],
+                                                                                                        ['!sideband_policy'],
+                                                                                                        ['security_global'],
+                                                                                                        ['!security_global']]
                                         },
                        'provider': {'type': 'dict', 'required': True}
                        }

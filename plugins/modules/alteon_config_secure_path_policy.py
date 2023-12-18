@@ -12,13 +12,13 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
                     'supported_by': 'certified'}
 
 DOCUMENTATION = r'''
-module: alteon_config_snmpv3_notify
-short_description: Manage SNMPv3 view tree family in Radware Alteon
+module: alteon_config_secure_path_policy
+short_description: create and manage secure path policy in Radware Alteon
 description:
-  - Manage SNMPv3 view tree family in Radware Alteon.
-version_added: '1.0.0'
+  - create and manage secure path policy in Radware Alteon.
+version_added: '1.1.0'
 author:
-  - Ofer Epstein (@ofere)
+  - Michal Greenberg (@michalgreenberg)
 options:
   provider:
     description:
@@ -68,7 +68,7 @@ options:
       - When C(present), guarantees that the object exists with the provided attributes.
       - When C(absent), when applicable removes the object.
       - When C(read), when exists read object from configuration to parameter format.
-      - When C(overwrite), removes the object if exists then recreate it
+      - When C(overwrite), removes the object if exists then recreate it.
       - When C(append), append object configuration with the provided parameters
     required: true
     default: null
@@ -93,21 +93,78 @@ options:
     type: bool
   parameters:
     description:
-      - Parameters for SNMPv3 view tree family configuration.
+      - Parameters for secure path policy configuration.
     type: dict
     suboptions:
-      name:
+      secure_path_id:
         description:
-          - Set notify name.
+          - secure path policy index.
         required: true
         default: null
         type: str
-      tag:
+      name:
         description:
-          - Set notify tag.
+          - Set Descriptive name for secure path policy.
         required: false
         default: null
         type: str
+      secure_path_policy_status:
+        description:
+          - Enable/Disable the secure path policy.
+        required: false
+        default: disabled
+        choices:
+        - enabled
+        - disabled
+      bot_manager_status:
+        description:
+          - Enable/Disable the Bot manager integration.
+        required: false
+        default: disabled
+        choices:
+        - enabled
+        - disabled
+      api_key:
+        description:
+          - Copy here the API Key of the application from Radware portal (in UUID format).
+        required: false
+        default: null
+        type: str
+      application_id:
+        description:
+          - Copy the Application ID of the application from Radware Portal (available at the URL) in UUID format.
+        required: false
+        default: null
+        type: str
+      file_extensions_to_bypass:
+        description:
+          - List the static file extensions to bypass with pipe separation (case-sensitive). Spaces are not allowed.
+          - Default Value:png|jpg|css|js|jpeg|gif|ico|ttf|svg|xml|woff|woff2|ashx|asmx|svc|swf|otf|eot|webp.
+        required: false
+        default: null
+        type: str
+      methods_to_bypass:
+        description:
+          - List the HTTP method to bypass static files with pipe separation. Spaces are not allowed.
+          - Default Value:GET|HEAD.
+        required: false
+        default: null
+        type: str
+      bypass_when_query_present:
+        description:
+          - Select to bypass when query is present.
+        required: false
+        default: disabled
+        choices:
+        - enabled
+        - disabled
+      maximum_request_size:
+        description:
+          - Enter the maximum request size (in kb).
+          - Valid range:1-1024. Default 10.
+        required: false
+        default: null
+        type: int
 notes:
   - Requires the Radware alteon-sdk Python package on the host. This is as easy as
       C(pip3 install alteon-sdk)
@@ -117,7 +174,7 @@ requirements:
 
 EXAMPLES = r'''
 - name: alteon configuration command
-  radware.radware_alteon.alteon_config_snmpv3_view_tree_family:
+  radware.radware_alteon.alteon_config_secure_path_policy:
     provider:
       server: 192.168.1.1
       user: admin
@@ -128,8 +185,11 @@ EXAMPLES = r'''
       timeout: 5
     state: present
     parameters:
-      name: notifyName
-      tag: notifyTag
+      secure_path_id: 3
+      name: secure_path3
+      secure_path_policy_status: enabled
+      maximum_request_size: 500
+      file_extensions_to_bypass: png|jpg
 '''
 
 RETURN = r'''
@@ -150,8 +210,9 @@ import traceback
 from ansible_collections.radware.radware_alteon.plugins.module_utils.common import RadwareModuleError
 from ansible_collections.radware.radware_alteon.plugins.module_utils.alteon import AlteonConfigurationModule, \
     AlteonConfigurationArgumentSpec as ArgumentSpec
+
 try:
-    from radware.alteon.sdk.configurators.snmpv3_notify import SNMPv3NotifyConfigurator
+    from radware.alteon.sdk.configurators.secure_path_policy import SecurePathPolicyConfigurator
 except ModuleNotFoundError:
     if __name__ == '__main__':
         module_args = {'parameters': {'type': 'dict', 'required': False},
@@ -166,11 +227,11 @@ except ModuleNotFoundError:
 
 class ModuleManager(AlteonConfigurationModule):
     def __init__(self, **kwargs):
-        super(ModuleManager, self).__init__(SNMPv3NotifyConfigurator, **kwargs)
+        super(ModuleManager, self).__init__(SecurePathPolicyConfigurator, **kwargs)
 
 
 def main():
-    spec = ArgumentSpec(SNMPv3NotifyConfigurator)
+    spec = ArgumentSpec(SecurePathPolicyConfigurator)
     module = AnsibleModule(argument_spec=spec.argument_spec, supports_check_mode=spec.supports_check_mode)
 
     try:

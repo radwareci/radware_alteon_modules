@@ -44,8 +44,8 @@ options:
                 default: null
             validate_certs:
                 description:
-                    - If C(no), SSL certificates will not be validated.
-                    - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+                    - If C(false), SSL certificates will not be validated.
+                    - This should only set to C(false) used on personally controlled sites using self-signed certificates.
                 required: true
                 default: null
                 type: bool
@@ -137,22 +137,22 @@ requirements:
 EXAMPLES = r'''
 - name: alteon configuration command
   radware.radware_alteon.alteon_config_slb_pip:
-        provider:
-            server: 192.168.1.1
-            user: admin
-            password: admin
-            validate_certs: no
-            https_port: 443
-            ssh_port: 22
-            timeout: 5
-        state: present
-        parameters:
-            pip_addr: 4.5.4.5
-            base_type: port
-            ports:
-                - 1
-                - 2
-            vlans: null
+    provider:
+      server: 192.168.1.1
+      user: admin
+      password: admin
+      validate_certs: false
+      https_port: 443
+      ssh_port: 22
+      timeout: 5
+    state: present
+    parameters:
+      pip_addr: 4.5.4.5
+      base_type: port
+      ports:
+        - 1
+        - 2
+      vlans: null
 '''
 
 RETURN = r'''

@@ -45,8 +45,8 @@ options:
         default: null
       validate_certs:
         description:
-          - If C(no), SSL certificates will not be validated.
-          - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+          - If C(false), SSL certificates will not be validated.
+          - This should only set to C(false) used on personally controlled sites using self-signed certificates.
         required: true
         default: null
         type: bool
@@ -67,8 +67,8 @@ options:
         default: null
   validate_backup_state:
     description:
-      - when C(yes) validate device in no longer in master state
-      - when C(no) no ha state validation
+      - when C(true) validate device in no longer in master state
+      - when C(false) no ha state validation
     required: false
     default: no
     type: bool
@@ -86,11 +86,11 @@ EXAMPLES = r'''
       server: 192.168.1.1
       user: admin
       password: admin
-      validate_certs: no
+      validate_certs: false
       https_port: 443
       ssh_port: 22
       timeout: 5
-    validate_backup_state: yes
+    validate_backup_state: true
 '''
 
 RETURN = r'''

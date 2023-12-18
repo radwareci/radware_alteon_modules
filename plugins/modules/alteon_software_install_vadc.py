@@ -44,8 +44,8 @@ options:
         default: null
       validate_certs:
         description:
-          - If C(no), SSL certificates will not be validated.
-          - This should only set to C(no) used on personally controlled sites using self-signed certificates.
+          - If C(false), SSL certificates will not be validated.
+          - This should only set to C(false) used on personally controlled sites using self-signed certificates.
         required: true
         default: null
         type: bool
@@ -122,20 +122,19 @@ requirements:
 '''
 
 EXAMPLES = r'''
-- name: alteon software installation
-  radware.radware_alteon.alteon_software_install:
+- name: alteon software installation on vadc
+  radware.radware_alteon.alteon_software_install_vadc:
     provider:
       server: 192.168.1.1
       user: admin
       password: admin
-      validate_certs: no
+      validate_certs: false
       https_port: 443
       ssh_port: 22
       timeout: 5
     state: activated
     vadc_id: 2
     version: 31.0.10.50
-    reboot_wait: yes
     reboot_timeout: 180
 '''
 
