@@ -17,7 +17,6 @@ jobs:
 #
 # https://docs.ansible.com/ansible/latest/dev_guide/testing_sanity.html
   deploy_galaxy:
-    needs: sanity
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
